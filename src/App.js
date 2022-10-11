@@ -1,23 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import {useDispatch, useSelector} from 'react-redux';
+import {sagaActions} from './sagaActions';
 
 function App() {
+  const dispatch = useDispatch()
+  const {fact} = useSelector(state => state.catFact)
+  console.log(fact)
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <button onClick={() => dispatch({
+        type : sagaActions.GET_FACT
+      })}>Click</button>
+       <div>{fact}</div>
     </div>
   );
 }
