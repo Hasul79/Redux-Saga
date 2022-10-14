@@ -15,7 +15,6 @@ const dataSlice = createSlice({
             fact: action.payload 
         }  
        }
-
    },
 }); 
 
